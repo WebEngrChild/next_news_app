@@ -24,7 +24,7 @@ const Article: React.FC<Props> = ({ articles, title }) => {
                   時間前
                 </p>
               </div>
-              {/* &&条件でtrueの時のみ表示させている */}
+              {/* &&条件でtrue（存在すれば※boolean型での判断）の時のみ表示させている。 */}
               {article.urlToImage && (
                 <img
                   key={index}
