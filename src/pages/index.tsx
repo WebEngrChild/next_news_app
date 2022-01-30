@@ -1,6 +1,8 @@
 // HTMLのheadタグ内に記述するためのタグ
 import Head from 'next/head'
 import MainLayout from '../layouts'
+import styles from '../styles/Home.module.scss'
+import Article from '../components/article'
 
 // ビルド時に事前にデータを取得してPropsに渡す（SSG ）
 export const getStaticProps = async () => {
@@ -26,14 +28,18 @@ export const getStaticProps = async () => {
 };
 
 export default function Home(props) {
-  // 記事を取得できているか確認
-  console.log(props.topArticles)
+
   return (
     <MainLayout>
       {/* MainLayoutに以下コンポーネントをpropsとして渡している */}
       <Head>
         <title>Simple News</title>
       </Head>
+
+      {/* Articleコンポーネントを追加 */}
+      <div className={styles.main}>
+        <Article title="headlines" articles={props.topArticles} />
+      </div>
     </MainLayout>
   )
 }
