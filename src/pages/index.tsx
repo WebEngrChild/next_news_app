@@ -1,10 +1,10 @@
-// HTMLのheadタグ内に記述するためのタグ
 import Head from 'next/head'
 import MainLayout from '../layouts'
 import styles from '../styles/Home.module.scss'
 import Article from '../components/article'
+import Nav from "../components/nav";
 
-// ビルド時に事前にデータを取得してPropsに渡す（SSG ）
+// 関数コンポーネント：ビルド時に事前にデータを取得してPropsに渡す（SSG ）
 export const getStaticProps = async () => {
   // APIKEYを取得
   const API_KEY = process.env.NEWS_API_KEY
@@ -18,6 +18,7 @@ export const getStaticProps = async () => {
   const topArticles = topJson?.articles;
 
   return {
+    // SSGのfetch結果をpropsに渡す
     props: {
       topArticles,
     },
@@ -27,18 +28,26 @@ export const getStaticProps = async () => {
   };
 };
 
+//  関数コンポーネント：
 export default function Home(props) {
-
   return (
+    // MainLayoutに以下コンポーネントをpropsとして渡している
     <MainLayout>
-      {/* MainLayoutに以下コンポーネントをpropsとして渡している */}
+      {/* HTMLのheadタグ内に記述するためのタグ */}
       <Head>
         <title>Simple News</title>
       </Head>
-
-      {/* Articleコンポーネントを追加 */}
-      <div className={styles.main}>
-        <Article title="headlines" articles={props.topArticles} />
+      <div className={styles.contents}>
+        <div className={styles.nav}>
+          <nav>
+            <Nav />
+          </nav>
+        </div>
+        <div className={styles.blank} />
+        <div className={styles.main}>
+          {/* SSG/ISRでセットしたPropsを記事コンポーネントにPropsで渡す */}
+          <Article title="headlines" articles={props.topArticles} />
+        </div>
       </div>
     </MainLayout>
   )
