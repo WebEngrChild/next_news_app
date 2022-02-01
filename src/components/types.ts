@@ -1,5 +1,6 @@
 type Props = {
   articles?: [
+    // articleという要素（実態はオブジェクト）。配列なので複数可能。
     article: {
       author: string;
       title: string;
@@ -16,6 +17,7 @@ type Props = {
       temp: number;
       clouds: number;
       weather: [
+        // conditionsという要素（実態はオブジェクト）
         conditions: {
           main: string;
           icon: string;
@@ -23,6 +25,9 @@ type Props = {
       ];
     };
     daily: [
+      // 配列に格納されるそれぞれの要素はdateという名前（実態はオブジェクト）
+      // dateはkey => value型ではなく単なる配列の一要素
+      // 連想配列の場合であれば{ key => value }
       date: {
         dt: number;
         clouds: number;
@@ -31,6 +36,7 @@ type Props = {
           max: number;
         };
         weather: [
+          // conditionsという要素（実態はオブジェクト）。配列なので複数可能。
           conditions: {
             id: number;
             icon: string;

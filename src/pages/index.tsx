@@ -3,7 +3,7 @@ import MainLayout from '../layouts'
 import styles from '../styles/Home.module.scss'
 import Article from '../components/article'
 import Nav from "../components/nav";
-
+// 【ルートにアクセスされた際に描画されるページ】
 // 関数コンポーネント：ビルド時に事前にデータを取得してPropsに渡す（SSG ）
 export const getStaticProps = async () => {
   // APIKEYを取得
