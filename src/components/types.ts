@@ -17,17 +17,16 @@ type Props = {
       temp: number;
       clouds: number;
       weather: [
-        // conditionsという要素（実態はオブジェクト）
+        // conditionsという配列の一要素（実態はオブジェクト）。配列なので複数可能。
         conditions: {
           main: string;
           icon: string;
         }
       ];
     };
+    
     daily: [
-      // 配列に格納されるそれぞれの要素はdateという名前（実態はオブジェクト）
-      // dateはkey => value型ではなく単なる配列の一要素
-      // 連想配列の場合であれば{ key => value }
+      // dateという配列の一要素（実態はオブジェクト）。配列なので複数可能。
       date: {
         dt: number;
         clouds: number;
@@ -36,7 +35,7 @@ type Props = {
           max: number;
         };
         weather: [
-          // conditionsという要素（実態はオブジェクト）。配列なので複数可能。
+          // conditionsという配列の一要素（実態はオブジェクト）。配列なので複数可能。
           conditions: {
             id: number;
             icon: string;
