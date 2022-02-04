@@ -17,16 +17,17 @@ type Props = {
       temp: number;
       clouds: number;
       weather: [
-        // conditionsという配列の一要素（実態はオブジェクト）。配列なので複数可能。
+        // conditionsという配列の一要素（実態はオブジェクト）。配列なので複数可能。明示的に名前付しているだけ。
         conditions: {
           main: string;
           icon: string;
         }
       ];
     };
+
     
     daily: [
-      // dateという配列の一要素（実態はオブジェクト）。配列なので複数可能。
+      // dateという配列の一要素（実態はオブジェクト）。配列なので複数可能。明示的に名前付しているだけ。
       date: {
         dt: number;
         clouds: number;
@@ -35,7 +36,7 @@ type Props = {
           max: number;
         };
         weather: [
-          // conditionsという配列の一要素（実態はオブジェクト）。配列なので複数可能。
+          // conditionsという配列の一要素（実態はオブジェクト）。配列なので複数可能。明示的に名前付しているだけ。
           conditions: {
             id: number;
             icon: string;
