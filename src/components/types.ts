@@ -1,6 +1,6 @@
 type Props = {
   articles?: [
-    // articleという要素（実態はオブジェクト）。配列なので複数可能。
+    // articleという配列の一要素（実態はオブジェクト）。配列なので複数可能。明示的に名前付しているだけ。
     article: {
       author: string;
       title: string;

@@ -9,7 +9,7 @@ import styles from "../../styles/Home.module.scss";
 export async function getStaticPaths() {
   return {
     // 動的ルートを使用するページ([id].tsx等)でISRを利用する際はpathには空配列を渡す
-    // 都度ビルドのISR設定（revalidate）したとしてもpathに渡されたパスには全ビルドのSSGが走る
+    // 都度ビルドのISR設定（revalidate）したとしてもpathに渡されたpathに関して全ビルドのSSGが走る
     paths: [],
     fallback: true,
   };
